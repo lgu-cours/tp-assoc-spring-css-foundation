@@ -1,0 +1,21 @@
+body{
+	font-size: 16px;
+	background-color: #ccc;
+}
+
+h1{
+	font-size: 2em;
+}
+
+section{
+	padding: 15px;
+}
+
+
+header.top-bar{
+	color: white;
+	background-color: black;
+}
+.content{
+	
+}

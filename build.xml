@@ -1,0 +1,31 @@
+<project name="tp" default="export">
+	
+	<!-- ============================================================================== -->
+	<!-- 1) Indiquer ICI votre NOM et votre PRENOM -->
+	<property name="nom"     value="Cadeau"    />
+	<property name="prenom"  value="Alexandre" />
+	
+	<!-- 2) Lancer la tache ANT : click-droit sur le "build.xml" + "Run as / Ant build" -->
+
+	<!-- 3) Recupérer le fichier ZIP dans le répertoire "dist" et l'envoyer par mail -->
+	<!-- ============================================================================== -->
+
+	
+	<property name="dist_dir"  value="./dist" />
+	
+	<property name="zip_file"  value="${dist_dir}/tp_assoc_${nom}_${prenom}.zip" />
+
+	<!-- ============================================================================== -->
+	<target name="export" >
+		<echo message="Export ... file : ${zip_file} " />
+		<mkdir dir="${dist_dir}" />
+		<delete file="${zip_file}" />
+		<zip destfile="${zip_file}"  >	
+			<zipfileset dir="./src"         prefix="src"         />		
+			<zipfileset dir="." >
+				<filename name="*.xml"/>  <!-- build*.xml, pom.xml -->
+			</zipfileset>			
+		</zip>
+	</target>
+
+</project>
